@@ -1,54 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Nish Mandal">
-
-    <meta name="description" content="This is an amazing web page">
-    <title>My Profile</title>
-
-    <link href="profileStyle.css" rel="stylesheet">
+    <meta name="author" content="Wen Zhu">
+    <meta name="description" content="Wen's developer portfolio: Java, web development and GPU programming projects">
+    <title>My Profile | Wen Zhu</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/room.css">
+    <link rel="stylesheet" href="./css/tv.css">
+    <link rel="stylesheet" href="./css/computer.css">
+    <link rel="stylesheet" href="./css/plant.css">
+    <link rel="stylesheet" href="./css/character.css">
+    <link rel="stylesheet" href="./css/interface.css">
+    <script type="module" src="./js/main.js"></script>
 </head>
-
 <body>
-     <a href="index.html">Go to profile</a>
-    <a href="projects.html">Go to projects</a>
-    <a href="https://www.linkedin.com/" target="_blank">My LinkedIn</a>
+    <a class="skip-link" href="#profile-panel">Skip to profile information</a>
 
-    <h1>Nish Mandal</h1>
-    <h2>My Profile</h2>
-    <div>
-        <h4>My Skills</h4>
-        <p>An <em>awesome</em> and <strong>amazing</strong> website demo</p>
-    </div>
-    <div>
-        <h4>My Hobbies</h4>
-        <ul>
-            <li>Piano</li>
-            <li>Running</li>
-            <li>Programming</li>
-        </ul>
-    </div>
-    <div>
-        <h4>Goals</h4>
-        <ol>
-            <li>I don't know</li>
-            <li>Finish this course</li>
-            <li>Fly to the moon</li>
-        </ol>
-    </div>
-    <div>
-        <h3>Search for News:</h3>
-    </div>
+    <main class="site-shell">
+        <header class="room-header">
+            <div>
+                <p class="kicker">WELCOME TO</p>
+                <h1>My Profile<span aria-hidden="true">.</span></h1>
+            </div>
+        </header>
 
-    <footer>
-        small>Copyright &#169; Sparta Global 2026 <cite>by Nish Mandal</cite></small>
+        <section class="room-stage" aria-label="An interactive illustrated room">
+            <div class="room" id="room"></div>
+        </section>
+
+        <section class="profile-console" id="profile-panel" aria-labelledby="profile-title">
+            <div class="speaker">
+                <img src="./profile-photo.png" alt="Portrait of Wen">
+            </div>
+            <div class="profile-copy">
+                <h2 id="profile-title">About Me</h2>
+                <p id="profile-text" aria-live="polite">Hi, I'm Wen. I'm a Java Consultant working at Sparta Global, with a background in Computer Science and a strong interest in software development. I enjoy building projects that let me explore different areas of programming, from full-stack web development to GPU programming.</p>
+            </div>
+            <span class="dialogue-tail" aria-hidden="true"></span>
+        </section>
+
+        <nav class="profile-tabs" aria-label="Profile sections">
+            <button type="button" class="profile-tab is-active" data-section="about" aria-pressed="true">About Me</button>
+            <button type="button" class="profile-tab" data-section="skills" aria-pressed="false">Skills</button>
+            <button type="button" class="profile-tab" data-section="education" aria-pressed="false">Education</button>
+            <button type="button" class="profile-tab" data-section="hobbies" aria-pressed="false">Hobbies &amp; Interests</button>
+            <button type="button" class="profile-tab" data-section="goals" aria-pressed="false">Goals</button>
+        </nav>
+
+        <p class="touch-note">Tip: tap the character, computer, or plant to interact.</p>
+    </main>
+
+    <dialog class="projects-dialog" id="projects-dialog" aria-labelledby="projects-title">
+        <div class="projects-window">
+            <header class="projects-toolbar">
+                <div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
+                <p>wen's computer / projects</p>
+                <button class="close-projects" type="button" aria-label="Close projects">Close <span aria-hidden="true">×</span></button>
+            </header>
+            <div class="projects-content">
+                <div class="projects-intro">
+                    <p class="kicker">PROJECT ARCHIVE</p>
+                    <h2 id="projects-title">Things I've made<span aria-hidden="true">.</span></h2>
+                    <p>Two projects from my work in GPU programming and full-stack web development.</p>
+                </div>
+                <div class="project-grid" id="project-grid"></div>
+                <a class="standalone-link" href="./projects.html">Open the standalone projects page <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="tv-search-modal tv-search-overlay" id="tv-search-modal"
+            aria-labelledby="tv-search-title" aria-describedby="tv-search-description">
+        <div class="tv-search-panel">
+            <button class="tv-search-close" type="button" aria-label="Close BBC search">
+                <span aria-hidden="true">×</span>
+            </button>
+            <p class="tv-search-eyebrow">ON THE AIR</p>
+            <h2 class="tv-search-title" id="tv-search-title">BBC News</h2>
+            <p class="tv-search-description" id="tv-search-description">Search the BBC directly from here.</p>
+            <form class="tv-search-form" action="https://www.bbc.co.uk/search" method="get">
+                <label for="mysearch">Search for:</label>
+                <div class="tv-search-controls">
+                    <input class="tv-search-input" id="mysearch" name="q" type="text"
+                           placeholder="Enter a search...">
+                    <button class="tv-search-button" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <div class="cursor-tooltip" id="cursor-tooltip" role="tooltip"></div>
+
+    <footer class="site-footer">
+        <p>© 2026 Wen Zhu</p>
+        <p>Built with HTML, CSS &amp; a small amount of JavaScript.</p>
     </footer>
 </body>
-
 </html>

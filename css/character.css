@@ -1,0 +1,130 @@
+.character {
+    position: absolute;
+    z-index: 6;
+    left: calc(var(--character-center-x) - (var(--character-width) / 2));
+    bottom: var(--character-bottom);
+    width: var(--character-width);
+    height: 51%;
+    transition: transform 160ms ease;
+}
+
+.character:hover,
+.character:focus-visible { transform: translateY(-2px); }
+
+.chair-back,
+.chair-seat,
+.chair-leg,
+.character-rig,
+.photo-head,
+.stick-figure {
+    position: absolute;
+    display: block;
+}
+
+.chair-back {
+    z-index: 1;
+    left: 30%;
+    top: 34%;
+    width: 42%;
+    height: 40%;
+    border: var(--line);
+    border-radius: 16px 16px 4px 4px;
+    background: var(--wood);
+}
+
+.chair-leg {
+    z-index: 1;
+    top: 73%;
+    width: 4%;
+    height: 27%;
+    border: 2px solid var(--ink);
+    background: var(--wood-dark);
+}
+
+.chair-leg-left { left: 31%; transform: rotate(4deg); transform-origin: top; }
+.chair-leg-right { left: 69%; transform: rotate(-4deg); transform-origin: top; }
+
+.character-rig {
+    z-index: 3;
+    inset: 0;
+    transform-origin: 51% 58%;
+    transition: transform 500ms ease-in-out;
+}
+
+.chair-seat {
+    z-index: 2;
+    left: 26%;
+    top: 67%;
+    width: 51%;
+    height: 10%;
+    border: var(--line);
+    background: var(--wood-dark);
+    transform: skewX(-4deg);
+}
+
+.photo-head {
+    z-index: 4;
+    left: 29%;
+    top: 0;
+    width: 42%;
+    aspect-ratio: 0.92;
+    border: var(--line);
+    border-radius: 48% 48% 44% 44%;
+    background: #e8d8c6;
+    overflow: hidden;
+    box-shadow: 4px 5px 0 rgba(46, 48, 45, 0.13);
+    transform-origin: 50% 92%;
+    transition: transform 450ms ease-in-out;
+}
+
+.photo-head img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 17%;
+    transform: scale(1.38);
+    transform-origin: 50% 22%;
+}
+
+.stick-figure {
+    z-index: 3;
+    top: 25%;
+    left: 12%;
+    width: 76%;
+    height: 75%;
+    overflow: visible;
+}
+
+.stick-line {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stick-joint { fill: var(--ink); }
+.arm-right, .arm-left, .leg-right { transform-box: fill-box; transition: transform 450ms ease-in-out; }
+.arm-right, .arm-left { transform-origin: top left; }
+.leg-right { transform-origin: top left; }
+
+.character-rig.pose-lean { transform: rotate(-1.5deg) translateY(-2px); }
+.character-rig.pose-lean .photo-head { transform: rotate(-2deg); }
+.character-rig.pose-wave .arm-right { transform: rotate(-8deg); }
+.character-rig.pose-wave .photo-head { transform: rotate(1.5deg); }
+.character-rig.pose-shift { transform: rotate(1deg) translateY(1px); }
+.character-rig.pose-shift .arm-left { transform: rotate(5deg); }
+.character-rig.pose-shift .leg-right { transform: rotate(-3deg); }
+
+@media (max-width: 600px) {
+    .chair-back,
+    .chair-seat,
+    .photo-head { border-width: 1.5px; }
+
+    .chair-leg { border-width: 1px; }
+    .stick-line { stroke-width: 4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .character-rig, .photo-head, .arm-right, .arm-left, .leg-right { transition: none; }
+}

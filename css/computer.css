@@ -1,0 +1,138 @@
+.desk-scene {
+    position: absolute;
+    z-index: 3;
+    left: var(--desk-left);
+    top: var(--desk-top);
+    width: var(--desk-width);
+    height: 35%;
+}
+
+.desk-frame {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.desk-piece {
+    stroke: var(--ink);
+    stroke-width: 4;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.desk-top-piece { fill: var(--wood); }
+.desk-rear-leg-piece { fill: #795944; }
+.desk-apron-piece { fill: #785640; }
+.desk-leg-piece { fill: var(--wood-dark); }
+
+.computer {
+    z-index: 4;
+    left: 31.5%;
+    top: -39%;
+    width: 37%;
+    height: 58%;
+    transition: transform 160ms ease;
+}
+
+.monitor,
+.monitor-screen,
+.monitor-neck,
+.monitor-base {
+    position: absolute;
+    display: block;
+}
+
+.monitor { inset: 0; }
+
+.monitor-screen {
+    inset: 0 0 23%;
+    border: var(--line);
+    border-radius: 4px;
+    background: #58666a;
+    box-shadow: 4px 5px 0 rgba(46, 48, 45, 0.12);
+    overflow: hidden;
+}
+
+.monitor-screen::after {
+    content: "";
+    position: absolute;
+    inset: 7%;
+    border: 1px solid rgba(255, 253, 247, 0.18);
+}
+
+.screen-dot {
+    position: absolute;
+    top: 17%;
+    left: 14%;
+    width: clamp(3px, 0.7vw, 8px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #ddad77;
+}
+
+.screen-title {
+    position: absolute;
+    top: 16%;
+    left: 27%;
+    color: var(--paper);
+    font-size: clamp(0.3rem, 0.8vw, 0.7rem);
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+.screen-row {
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    bottom: 37%;
+    height: clamp(2px, 0.45vw, 5px);
+    background: rgba(255, 253, 247, 0.6);
+}
+
+.screen-row.short { right: 41%; bottom: 22%; }
+
+.monitor-neck {
+    top: 76%;
+    left: 43%;
+    width: 15%;
+    height: 16%;
+    border-inline: 2px solid var(--ink);
+    background: var(--blue);
+}
+
+.monitor-base {
+    left: 27%;
+    bottom: 0;
+    width: 48%;
+    height: 10%;
+    border: 2px solid var(--ink);
+    border-radius: 50% 50% 3px 3px;
+    background: var(--blue);
+}
+
+.keyboard {
+    position: absolute;
+    z-index: 4;
+    top: 8%;
+    left: 36%;
+    width: 26%;
+    height: auto;
+    object-fit: contain;
+    transform: rotate(0.5deg);
+    transform-origin: center;
+    pointer-events: none;
+}
+
+.computer:hover,
+.computer:focus-visible { transform: translateY(-2px) scale(1.02); }
+
+@media (max-width: 600px) {
+    .desk-piece { stroke-width: 2.5; }
+    .monitor-screen { border-width: 2px; }
+    .monitor-base { border-width: 1px; }
+    .monitor-neck { border-width: 1px; }
+}

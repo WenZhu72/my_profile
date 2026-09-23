@@ -1,0 +1,145 @@
+:root {
+    --ink: #2e302d;
+    --muted-ink: #686b64;
+    --cream: #f5f0e5;
+    --paper: #fffdf7;
+    --wall: #e9e1d2;
+    --wall-side: #d9cebc;
+    --floor: #c9b493;
+    --wood: #8e674d;
+    --wood-dark: #644938;
+    --green: #637b58;
+    --green-dark: #40523a;
+    --accent: #c96f53;
+    --accent-dark: #8f4835;
+    --blue: #6f8790;
+    --line: 3px solid var(--ink);
+    --shadow: 8px 9px 0 rgba(46, 48, 45, 0.13);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    overflow-x: hidden;
+}
+
+button, a { font: inherit; }
+button { color: inherit; }
+img { display: block; max-width: 100%; }
+h1, h2, p { overflow-wrap: break-word; }
+
+.skip-link {
+    position: fixed;
+    z-index: 1000;
+    top: 12px;
+    left: 12px;
+    padding: 10px 14px;
+    color: var(--paper);
+    background: var(--ink);
+    transform: translateY(-160%);
+    transition: transform 160ms ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.site-shell {
+    /*
+       At shorter desktop heights, fit the 16:9 room into the space left below
+       the header. 177.7778dvh - 248.8889px is the width equivalent of a
+       100dvh - 140px height budget at 16:9.
+    */
+    --hero-room-width: min(100%, calc(177.7778dvh - 248.8889px));
+
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: clamp(14px, 2.6dvh, 28px) 0 clamp(12px, 1.7dvh, 18px);
+}
+
+.room-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    width: var(--hero-room-width);
+    margin: 0 auto clamp(10px, 1.7dvh, 18px);
+    padding-inline: 6px;
+}
+
+.kicker {
+    margin: 0 0 5px;
+    color: var(--accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.room-header h1,
+.projects-intro h1,
+.projects-intro h2 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.25rem, 6vw, 4.4rem);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+}
+
+.room-header h1 span,
+.projects-intro h1 span,
+.projects-intro h2 span { color: var(--accent); }
+
+.object-button {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.object-button:focus-visible {
+    outline: 3px dashed var(--accent-dark);
+    outline-offset: 7px;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 25px 0 30px;
+    color: var(--muted-ink);
+    font-size: 0.76rem;
+}
+
+.site-footer p { margin: 0; }
+
+@media (max-width: 600px) {
+    .site-shell, .projects-page-shell, .site-footer {
+        width: min(100% - 20px, 1120px);
+    }
+
+    .site-shell {
+        --hero-room-width: 100%;
+        padding-top: 18px;
+    }
+    .room-header { align-items: start; flex-direction: column; gap: 10px; }
+    .site-footer { align-items: flex-start; flex-direction: column; gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

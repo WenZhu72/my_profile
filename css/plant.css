@@ -1,0 +1,36 @@
+.plant {
+    position: absolute;
+    z-index: 5;
+    right: var(--plant-right);
+    bottom: var(--plant-bottom);
+    width: var(--plant-width);
+    height: 29%;
+    transition: transform 160ms ease;
+}
+
+.plant-shadow {
+    position: absolute;
+    z-index: 0;
+    left: 12.5%;
+    bottom: -1%;
+    width: 75%;
+    height: 6%;
+    border-radius: 50%;
+    background: rgba(46, 48, 45, 0.18);
+}
+
+.plant-image {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    height: 100%;
+    object-fit: contain;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.plant:hover,
+.plant:focus-visible { transform: rotate(0.7deg) translateY(-2px); }

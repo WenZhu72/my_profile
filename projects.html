@@ -1,42 +1,41 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>My projects</title>
-    <link href="profileStyle.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Wen Zhu">
+    <meta name="description" content="Projects by Wen">
+    <title>Projects | Wen Zhu</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/interface.css">
+    <script type="module" src="./js/projects-page.js"></script>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Go to profile</a></li>
-            <li><a href="projects.html">Go to projects</a></li>
-            <li><a href="https://www.linkedin.com/in/peter-bellaby-40b93022b/" target="_blank">My LinkedIn</a></li>
-        </ul>
-    </nav>
-    <section>
-        <h1>Projects</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Description</th>
-                    <th>Year</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Agile Project</td>
-                    <td>Did some stuff with user stories</td>
-                    <td>2023</td>
-                </tr>
-                <tr>
-                    <td>Safari Park Project</td>
-                    <td>Demonstrated polymorphism</td>
-                    <td>2023</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+<body class="projects-page">
+    <a class="skip-link" href="#project-grid">Skip to projects</a>
+
+    <main class="projects-page-shell">
+        <a class="back-to-room" href="./index.html"><span aria-hidden="true">←</span> Back to my profile</a>
+
+        <section class="standalone-screen" aria-labelledby="page-title">
+            <header class="projects-toolbar">
+                <div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
+                <p>wen's computer / projects</p>
+            </header>
+            <div class="projects-content">
+                <div class="projects-intro">
+                    <p class="kicker">PROJECT ARCHIVE</p>
+                    <h1 id="page-title">Things I've made<span aria-hidden="true">.</span></h1>
+                    <p>Two projects from my work in GPU programming and full-stack web development.</p>
+                </div>
+
+                <div class="project-grid" id="project-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Wen Zhu</p>
+        <p>Built with HTML, CSS &amp; JavaScript.</p>
+    </footer>
 </body>
 </html>
