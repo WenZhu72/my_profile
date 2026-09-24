@@ -28,7 +28,14 @@ export function createRoom(room) {
     const computerScene = createComputer();
     const plant = createPlant();
     const character = createCharacter();
+
+    const characterMessage = document.createElement("span");
     const plantNote = document.createElement("p");
+
+    characterMessage.className = "character-message";
+    characterMessage.id = "character-message";
+
+    character.appendChild(characterMessage);
 
     rug.className = "rug";
     rug.setAttribute("aria-hidden", "true");
@@ -38,10 +45,19 @@ export function createRoom(room) {
     plantNote.setAttribute("role", "status");
     plantNote.setAttribute("aria-live", "polite");
 
-    room.replaceChildren(background, tv, rug, computerScene, plant, character, plantNote);
+    room.replaceChildren(
+        background,
+        tv,
+        rug,
+        computerScene,
+        plant,
+        character,
+        plantNote
+    );
 
     return {
         character,
+        characterMessage,
         computer: computerScene.querySelector(".computer"),
         tv,
         plant,

@@ -36,7 +36,31 @@ export function createCharacter() {
     return character;
 }
 
-export function setupCharacter(character) {
+export function setupCharacter(character, characterMessage) {
+    
+    const message = [
+        "Ow.",
+        "Owwie.",
+        "ouch",
+        "stop it."
+    ]
+
+    let messageTimer;
+
+    character.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * message.length);
+
+        characterMessage.textContent = message[randomIndex];
+        characterMessage.classList.add("is-visible");
+
+        clearTimeout(messageTimer);
+
+        messageTimer = setTimeout(() => {
+            characterMessage.classList.remove("is-visible");
+        }, 1000)
+    })
+    
+    
     const rig = character?.querySelector(".character-rig");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (!rig || reducedMotion.matches) return;

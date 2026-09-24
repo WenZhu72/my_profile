@@ -12,6 +12,6 @@ renderProjects();
 setupProfile(roomObjects.character);
 setupTooltip();
 setupProjects(roomObjects.computer);
-setupCharacter(roomObjects.character);
+setupCharacter(roomObjects.character, roomObjects.characterMessage);
 setupPlant(roomObjects.plant, roomObjects.plantNote);
 setupTv(roomObjects.tv);
